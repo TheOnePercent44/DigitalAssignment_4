@@ -2,7 +2,8 @@ function newPlayer(game, xcoord, ycoord)
 {
 	this.game = game;
 	this.sprite = this.game.add.sprite(xcoord, ycoord, 'redBlock');
-	this.game.physics.enable(this.sprite, Phaser.Physics.P2JS);
+	//this.game.physics.enable(this.sprite, Phaser.Physics.P2JS);
+	this.game.physics.enable(this.sprite, Phaser.Physics.ARCADE);
 	this.sprite.body.allowGravity = true;
 	this.inAir = false;
 	
