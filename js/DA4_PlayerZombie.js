@@ -11,20 +11,17 @@ function newPlayer(game, xcoord, ycoord)
     this.DRAG = 600; // pixels/second
     //this.GRAVITY = 2600; // pixels/second/second
     this.JUMP_SPEED = -200; // pixels/second (negative y is up)
-	//this.sprite.body.drag.setTo(this.DRAG, 0);
 	
 	this.idle = function()
 	{
-		this.inAir = !(this.sprite.body.touching.down);
-		this.sprite.body.acceleration.x = 0;
+		
 	}
 	
 	this.runRight = function()
 	{
 		if(this.inAir != true)
 		{
-			//this.sprite.body.velocity.x = 100;
-			this.sprite.body.acceleration.x = this.ACCELERATION;
+			this.sprite.body.velocity.x = 100;
 			//this.sprite.scale.x = 1;
 		}
 	}
@@ -33,8 +30,7 @@ function newPlayer(game, xcoord, ycoord)
 	{
 		if(this.inAir != true)
 		{
-			//this.sprite.body.velocity.x = -100;
-			this.sprite.body.acceleration.x = -this.ACCELERATION;
+			this.sprite.body.velocity.x = -100;
 			//this.sprite.scale.x = -1;
 		}
 	}
@@ -43,7 +39,7 @@ function newPlayer(game, xcoord, ycoord)
 	{
 		if(this.inAir != true)
 		{
-			this.sprite.body.velocity.y = this.JUMPSPEED;//-100;
+			this.sprite.body.velocity.y = this.JUMP_SPEED;
 			this.inAir = true;
 		}
 	}
