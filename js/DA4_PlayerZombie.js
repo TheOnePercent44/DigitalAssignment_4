@@ -27,6 +27,11 @@ function newPlayer(game, xcoord, ycoord)
 				//this.sprite.animations.play('idle');
 			}
 		}
+		else
+		{
+			if(this.sprite.body.velocity.y === 0)
+				this.inAir = false;
+		}
 	}
 	
 	this.runRight = function()
