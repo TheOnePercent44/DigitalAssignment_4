@@ -16,7 +16,9 @@ function newPlayer(game, xcoord, ycoord)
 	{
 		if(this.inAir != true)
 		{
-			
+			if(this.sprite.body.velocity.y != 0)
+				this.inAir = true;
+			else{}
 		}
 		else
 		{
