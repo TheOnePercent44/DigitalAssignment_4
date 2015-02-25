@@ -20,6 +20,10 @@ function newPlayer(game, xcoord, ycoord)
 			if(this.sprite.body.velocity.y === 0)
 				this.inAir = false;
 		}
+		else
+		{
+			this.sprite.body.velocity.x = 0;
+		}
 	}
 	
 	this.runRight = function()
