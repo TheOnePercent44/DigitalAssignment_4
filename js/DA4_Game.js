@@ -27,8 +27,8 @@ OrganTrail.Game = function (game) {
 var player, layer;
 OrganTrail.Game.prototype = {
     create: function () {
-		//this.game.physics.startSystem(Phaser.Physics.ARCADE);
-		this.game.physics.startSystem(Phaser.Physics.P2JS);
+		this.game.physics.startSystem(Phaser.Physics.ARCADE);
+		//this.game.physics.startSystem(Phaser.Physics.P2JS);
         //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
 		map = this.game.add.tilemap('map');
 		map.addTilesetImage('greenBlock_32x32', 'greenBlock');
@@ -39,7 +39,7 @@ OrganTrail.Game.prototype = {
 		layer.resizeWorld();
 		map.setCollision(1, true, 'Platforms', true);
 		
-		this.game.physics.p2.convertTilemap(map, layer);
+		//this.game.physics.p2.convertTilemap(map, layer);
 		//this.game.camera.setSize(100, 100);
 		//this.game.camera.bounds = new Phaser.Rectangle(0, 0, 3216,3216);
 		this.game.camera.follow(player.sprite, this.game.camera.FOLLOW_PLATFORMER);
@@ -51,7 +51,7 @@ OrganTrail.Game.prototype = {
     update: function () {
 
         //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
-		//this.game.physics.arcade.collide(player.sprite, layer, player.hitLand, null, player);
+		this.game.physics.arcade.collide(player.sprite, layer, player.hitLand, null, player);
 		
 		if(this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
 		{
