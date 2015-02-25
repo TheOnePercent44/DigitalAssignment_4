@@ -14,13 +14,7 @@ function newPlayer(game, xcoord, ycoord)
 	
 	this.idle = function()
 	{
-		if(this.inAir != true)
-		{
-			if(this.sprite.body.velocity.y != 0)
-				this.inAir = true;
-			else{}
-		}
-		else
+		if(this.inAir === true)
 		{
 			if(this.sprite.body.velocity.y === 0)
 				this.inAir = false;
