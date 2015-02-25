@@ -6,6 +6,11 @@ function newPlayer(game, xcoord, ycoord)
 	this.sprite.body.allowGravity = true;
 	this.inAir = false;
 	
+	this.idle = function()
+	{
+		
+	}
+	
 	this.runRight = function()
 	{
 		if(this.inAir != true)
@@ -35,7 +40,7 @@ function newPlayer(game, xcoord, ycoord)
 	
 	this.hitLand = function(player, layer)//accepts two arguments for compatibility with collide
 	{
-		if(this.inAir === true && this.sprite.body.velocity.y > 0)
+		if(this.inAir === true)//&& this.sprite.body.velocity.y > 0)
 		{
 			this.inAir = false;
 		}
