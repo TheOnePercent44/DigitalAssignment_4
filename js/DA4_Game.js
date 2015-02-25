@@ -45,7 +45,7 @@ OrganTrail.Game.prototype = {
 		this.game.camera.follow(player.sprite, this.game.camera.FOLLOW_PLATFORMER);
 		//this.game.camera.update();
 		
-		this.game.physics.p2.gravity.y = 2600;//300;
+		this.game.physics.p2.gravity.y = 300;//300;
     },
 
     update: function () {
