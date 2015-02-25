@@ -64,7 +64,8 @@ OrganTrail.Game.prototype = {
 		}
 		else
 		{
-			player.idle();
+			if(player.inAir === false)
+				player.idle();
 		}
 		if(this.game.input.keyboard.isDown(Phaser.Keyboard.UP))
 		{
