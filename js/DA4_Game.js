@@ -24,7 +24,7 @@ OrganTrail.Game = function (game) {
 
 };
 
-var player, layer;
+var player, layer, humans, friends;
 OrganTrail.Game.prototype = {
     create: function () {
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -47,6 +47,15 @@ OrganTrail.Game.prototype = {
 		
 		//this.game.physics.p2.gravity.y = 300;//300;
 		this.game.physics.arcade.gravity.y = 300;//300;
+		
+		humans = new Group();
+		humans.enableBody = true;
+		//humans.enableGravity=true;
+		humans.add(new Human(this.game, 45, 3100));
+		/*for(int i = 0; i< 20;i++)
+		{
+			
+		}*/
     },
 
     update: function () {
@@ -69,7 +78,7 @@ OrganTrail.Game.prototype = {
 		}
 		if(this.game.input.keyboard.isDown(Phaser.Keyboard.UP))
 		{
-			player.jump();
+			//player.jump();
 		}
     },
 
@@ -85,7 +94,18 @@ OrganTrail.Game.prototype = {
 
 };
 
-function horde(game, player)
+function Human(game, xcoord, ycoord)
+{
+	this.game = game;
+	this.sprite = this.game.add.sprite(xcoord, ycoord, 'blueBlock');
+	
+	this.die = function()
+	{
+		this.sprite.kill();
+	}
+}
+
+function Horde(game, player)
 {
 	this.game = game;
 	this.target = player;
