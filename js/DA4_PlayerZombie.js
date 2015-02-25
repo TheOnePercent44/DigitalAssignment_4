@@ -55,7 +55,7 @@ function newPlayer(game, xcoord, ycoord)
 	
 	this.hitLand = function(player, layer)//accepts two arguments for compatibility with collide
 	{
-		if(this.inAir === true)//&& this.sprite.body.velocity.y > 0)
+		if(this.inAir === true && this.sprite.body.velocity.y > 0)
 		{
 			this.inAir = false;
 		}
