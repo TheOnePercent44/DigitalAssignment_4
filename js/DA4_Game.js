@@ -55,19 +55,19 @@ OrganTrail.Game.prototype = {
 		
 		if(this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
 		{
-			player.runRight();
+			//player.runRight();
 		}
 		else if(this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT))
 		{
-			player.runLeft();
+			//player.runLeft();
 		}
 		else
 		{
-			player.idle();
+			//player.idle();
 		}
 		if(this.game.input.keyboard.isDown(Phaser.Keyboard.UP))
 		{
-			player.jump();
+			//player.jump();
 		}
     },
 
@@ -82,15 +82,6 @@ OrganTrail.Game.prototype = {
     }
 
 };
-
-function newPlayer(game, xcoord, ycoord)
-{
-	this.game = game;
-	this.sprite = this.game.add.sprite(xcoord, ycoord, 'redBlock');
-	this.game.physics.enable(this.sprite, Phaser.Physics.P2JS);
-	this.sprite.body.allowGravity = true;
-	return this;
-}
 
 function horde(game, player)
 {
