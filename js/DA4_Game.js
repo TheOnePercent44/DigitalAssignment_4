@@ -63,7 +63,7 @@ OrganTrail.Game.prototype = {
 		}
 		else
 		{
-			player.idle();
+			//player.idle();
 		}
 		if(this.game.input.keyboard.isDown(Phaser.Keyboard.UP))
 		{
