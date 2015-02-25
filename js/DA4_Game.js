@@ -39,7 +39,7 @@ OrganTrail.Game.prototype = {
 		layer.resizeWorld();
 		map.setCollision(1, true, 'Platforms', true);
 		
-		game.physics.p2.convertTilemap(map, layer);
+		this.game.physics.p2.convertTilemap(map, layer);
 		//this.game.camera.setSize(100, 100);
 		//this.game.camera.bounds = new Phaser.Rectangle(0, 0, 3216,3216);
 		this.game.camera.follow(player.sprite, this.game.camera.FOLLOW_PLATFORMER);
@@ -55,19 +55,19 @@ OrganTrail.Game.prototype = {
 		
 		if(this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
 		{
-			//player.runRight();
+			player.runRight();
 		}
 		else if(this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT))
 		{
-			//player.runLeft();
+			player.runLeft();
 		}
 		else
 		{
-			//player.idle();
+			player.idle();
 		}
 		if(this.game.input.keyboard.isDown(Phaser.Keyboard.UP))
 		{
-			//player.jump();
+			player.jump();
 		}
     },
 
