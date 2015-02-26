@@ -147,7 +147,7 @@ function Horde(game, playersprite)
 	this.update = function()
 	{
 		console.log("Horde Update");
-		this.zombies.forEachAlive(chase, this);
+		this.zombies.forEachAlive(this.chase, this);
 	}
 	
 	this.chase = function(zombieFriend)
