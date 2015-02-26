@@ -96,7 +96,7 @@ OrganTrail.Game.prototype = {
 			}
 			else
 			{
-				friends.zombies.forEachAlive(friends.zombies.setProperty, 'enableGravity', false, 0, true);
+				friends.zombies.forEachAlive(friends.zombies.setProperty, friends.zombies, 'enableGravity', false, 0, true);
 				friends.climbing = false;
 			}
 		}
