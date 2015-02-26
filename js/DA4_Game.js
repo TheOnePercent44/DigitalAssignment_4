@@ -243,11 +243,12 @@ function Horde(game, playersprite)
 		else if(leftKey.isDown)
 			this.goleft = true;
 		
-		//if(this.stacked === false)
-		//{
+		if(this.stacked === false)
+		{
+			console.log("Not stacked, disabling gravity and finding wall");//debug
 			this.zombies.forEachAlive(this.zombies.setProperty, this.zombies, 'enableGravity', false, 0, true);
 			this.zombies.forEachAlive(this.findWall, this, this.goright, this.goleft);
-		//}
+		}
 		this.zombies.forEachAlive(this.growTall, this);
 		
 		this.goright = false;
@@ -269,15 +270,15 @@ function Horde(game, playersprite)
 		else
 		{}//wait?
 		
-		this.game.physics.arcade.collide(zombieFriend, layer, this.growTall, null, this);
+		//this.game.physics.arcade.collide(zombieFriend, layer, this.growTall, null, this);
 	}
 	
 	this.growTall = function(zombieFriend)//, layer)//accepts two for collide
 	{
-		//console.log("In growTall");
+		console.log("In growTall");
 		if(zombieFriend.body.onWall())
 		{
-			//console.log("I am onWall()");
+			console.log("I am onWall()");
 			zombieFriend.body.velocity.x = 0;
 			//zombieFriend.body.velocity.y = this.game.gravity.y+(32*this.zombies.getIndex(zombieFriend));
 			zombieFriend.body.y = zombieFriend.body.y-(32*this.zombies.getIndex(zombieFriend));
