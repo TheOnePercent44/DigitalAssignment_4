@@ -118,6 +118,7 @@ OrganTrail.Game.prototype = {
 		}
 		else
 		{
+			friends.zombies.forEachAlive(friends.zombies.setProperty, friends.zombies, 'stacked', false, 0, true);
 			if(friends.climbing === true)
 			{
 				friends.climbing = false;
@@ -279,12 +280,17 @@ function Horde(game, playersprite)
 		console.log("In growTall");
 		if(zombieFriend.body.onWall())
 		{
+			zombieFriend.stacked = true;
 			console.log("I am onWall()");
 			zombieFriend.body.velocity.x = 0;
 			//zombieFriend.body.velocity.y = this.game.gravity.y+(32*this.zombies.getIndex(zombieFriend));
 			zombieFriend.body.enableGravity= false;
 			zombieFriend.body.y = zombieFriend.body.y-(32*this.zombies.getIndex(zombieFriend));
 			this.stacked = true;
+		}
+		else if(zombieFriend.stacked === true)
+		{
+			zombieFriend.body.y = zombieFriend.body.y;
 		}
 	}
 };
