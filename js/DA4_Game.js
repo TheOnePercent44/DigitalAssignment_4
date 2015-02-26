@@ -247,15 +247,17 @@ function Horde(game, playersprite)
 		if(goright)//move right and stack
 		{
 			zombieFriend.body.velocity.x = this.MAX_SPEED;
-			this.game.physics.arcade.collide(zombieFriend, layer, this.growTall, null, this);
+			//this.game.physics.arcade.collide(zombieFriend, layer, this.growTall, null, this);
 		}
 		else if(goleft)//move right and stack
 		{
 			zombieFriend.body.velocity.x = -this.MAX_SPEED;
-			this.game.physics.arcade.collide(zombieFriend, layer, this.growTall, null, this);
+			//this.game.physics.arcade.collide(zombieFriend, layer, this.growTall, null, this);
 		}
 		else
 		{}//wait?
+		
+		this.game.physics.arcade.collide(zombieFriend, layer, this.growTall, null, this);
 	}
 	
 	this.growTall = function(zombieFriend, layer)//accepts two for collide
