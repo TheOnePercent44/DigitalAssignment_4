@@ -60,7 +60,7 @@ OrganTrail.Game.prototype = {
 		humans.add(hume.sprite);
 		hume = new Human(this.game, 100, 3100);
 		humans.add(hume.sprite);
-		/*for(int i = 0; i< 20;i++)
+		/*for(var i = 0; i< 20;i++)
 		{
 			humans.add(newHume(this.game));
 		}*/
@@ -104,7 +104,7 @@ OrganTrail.Game.prototype = {
 			}
 			else
 			{
-				friends.zombies.forEachAlive(friends.zombies.setProperty, friends.zombies, 'enableGravity', false, 0, true);
+				friends.zombies.forEachAlive(friends.zombies.setProperty, friends.zombies, 'enableGravity', true, 0, true);
 				friends.climbing = false;
 			}
 		}
@@ -241,7 +241,7 @@ function Horde(game, playersprite)
 	
 	this.growTall = function(zombieFriend)
 	{
-		if(zombieFriend.body.touching.right)
+		if(zombieFriend.body.onWall())
 		{
 			zombieFriend.body.velocity.x = 0;
 			//zombieFriend.body.velocity.y = this.game.gravity.y+(32*this.zombies.getIndex(zombieFriend));
