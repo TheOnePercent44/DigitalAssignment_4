@@ -135,14 +135,18 @@ function Horde(game, playersprite)
 	this.zombies = this.game.add.group();
 	this.zombies.enableBody = true;
 	
-	this.MIN_DISTANCE = 64;
-	this.MAX_DISTANCE = 32
+	this.MIN_DISTANCE = 42;
+	//this.MAX_DISTANCE = 32
 	
 	this.MAX_SPEED = 400;
+	this.DRAG = 500;
+	this.ACCEL = 1500;
 	
 	this.gainZombie = function(x, y)
 	{
 		//var temp = new ZombieFriend(this.game, x, y, this);
+		var temp = this.game.add.sprite(x, y, 'purpleBlock');
+		temp.drag = this.DRAG;
 		this.zombies.add(this.game.add.sprite(x, y, 'purpleBlock'));
 	}
 	
@@ -156,16 +160,18 @@ function Horde(game, playersprite)
 		var distance = this.game.math.distance(zombieFriend.x, zombieFriend.y, this.target.x, this.target.y);
 
 		// If the distance > MIN_DISTANCE then move
-		if (distance > this.MIN_DISTANCE)// && this.distance !< MAX_DISTANCE)
+		if (distance > this.MIN_DISTANCE && zombieFriend.body.velocity.x < this.MAX_SPEED)// && this.distance !< MAX_DISTANCE)
 		{		
 			// Calculate the angle to the target
 			var rotation = this.game.math.angleBetween(zombieFriend.x, zombieFriend.y, this.target.x, this.target.y);
 
 			// Calculate velocity vector based on rotation and this.MAX_SPEED
-			zombieFriend.body.velocity.x = Math.cos(rotation) * this.MAX_SPEED;
-			zombieFriend.body.velocity.y = Math.sin(rotation) * this.MAX_SPEED;
-		} else {
-			zombieFriend.body.velocity.setTo(0, 0);
+			zombieFriend.body.acceleration.x = Math.cos(rotation) * this.ACCEL;
+			//zombieFriend.body.acceleration.y = Math.sin(rotation) * this.ACCEL;
+		} 
+		else
+		{
+			//zombieFriend.body.velocity.setTo(0, 0);
 		}
 	}
 }
