@@ -86,7 +86,7 @@ OrganTrail.Game.prototype = {
 				player.idle();
 		}
 		//if(this.game.input.keyboard.isDown(Phaser.Keyboard.UP))
-		if(this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR);
+		if(this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR))
 		{
 			//player.jump();
 			if(friends.climbing === false)
