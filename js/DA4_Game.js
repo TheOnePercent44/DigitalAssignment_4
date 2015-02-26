@@ -156,7 +156,8 @@ function Horde(game, playersprite)
 		var distance = this.game.math.distance(zombieFriend.x, zombieFriend.y, this.target.x, this.target.y);
 
 		// If the distance > MIN_DISTANCE then move
-		if (distance > this.MIN_DISTANCE && this.distance !< MAX_DISTANCE) {
+		if (distance > this.MIN_DISTANCE)// && this.distance !< MAX_DISTANCE)
+		{		
 			// Calculate the angle to the target
 			var rotation = this.game.math.angleBetween(zombieFriend.x, zombieFriend.y, this.target.x, this.target.y);
 
