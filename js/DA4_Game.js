@@ -143,6 +143,7 @@ function Horde(game, playersprite)
 	
 	this.update = function()
 	{
+		console.log("Horde Update");
 		for(var i = 0; i < this.zombies.countLiving(); i++)
 		{
 			this.zombies.getChildAt(i).update();
@@ -160,6 +161,7 @@ function ZombieFriend(game, xcoord, ycoord, horde)
 	
 	this.update = function()
 	{
+		console.log("ZombieFriend Update");
 		var distance = this.game.math.distance(this.x, this.y, this.target.x, this.target.y);
 
 		// If the distance > MIN_DISTANCE then move
