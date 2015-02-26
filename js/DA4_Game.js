@@ -35,7 +35,6 @@ OrganTrail.Game.prototype = {
 		//map.addTilesetImage('blueBlock_32x32', 'blueBlock');
 		//layer = map.createLayer('Background');
 		layer = map.createLayer('Platforms');
-		player = new newPlayer(this.game, 15, 3100);//physics enables in Catfighter
 		layer.resizeWorld();
 		map.setCollision(1, true, 'Platforms', true);
 		
@@ -47,7 +46,6 @@ OrganTrail.Game.prototype = {
 		//this.game.physics.p2.convertTilemap(map, layer);
 		//this.game.camera.setSize(100, 100);
 		//this.game.camera.bounds = new Phaser.Rectangle(0, 0, 3216,3216);
-		this.game.camera.follow(player.sprite, this.game.camera.FOLLOW_PLATFORMER);
 		//this.game.camera.update();
 		
 		//this.game.physics.p2.gravity.y = 300;//300;
@@ -68,6 +66,9 @@ OrganTrail.Game.prototype = {
 		
 		friends = new Horde(this.game, player.sprite);
 		
+		
+		player = new newPlayer(this.game, 15, 3100);//physics enables in Catfighter
+		this.game.camera.follow(player.sprite, this.game.camera.FOLLOW_PLATFORMER);
 		player.sprite.body.collideWorldBounds = true;
     },
 
