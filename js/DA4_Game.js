@@ -90,7 +90,7 @@ OrganTrail.Game.prototype = {
 				player.idle();
 		}
 		//if(this.game.input.keyboard.isDown(Phaser.Keyboard.UP))
-		if(spaceKey.justPressed(500))
+		if(spaceKey.isDown)
 		{
 			//player.jump();
 			if(friends.climbing === false)
@@ -150,6 +150,9 @@ function Horde(game, playersprite)
 	this.zombies = this.game.add.group();
 	this.zombies.enableBody = true;
 	
+	this.goright = false;
+	this.goleft = false;
+	
 	this.MIN_DISTANCE = 42;
 	//this.MAX_DISTANCE = 32
 	
@@ -200,18 +203,26 @@ function Horde(game, playersprite)
 	
 	this.ladder = function()
 	{
+		if(rightKey.isDown)
+			this.goright = true;
+		else if(leftKeey.isDown)
+			this.goleft = true;
+		
 		this.zombies.forEachAlive(this.zombies.setProperty, this.zombies, 'enableGravity', false, 0, true);
-		this.zombies.forEachAlive(this.findWall, this);
+		this.zombies.forEachAlive(this.findWall, this, goright, goleft);
+		
+		this.goright = false;
+		this.goleft = false;
 	}
 	
-	this.findWall = function(zombieFriend)
+	this.findWall = function(zombieFriend, goright, goleft)
 	{
-		if(rightKey.justPressed(500))//move right and stack
+		if(goright)//move right and stack
 		{
 			zombieFriend.body.velocity.x = this.MAX_SPEED;
 			this.game.physics.arcade.collide(zombieFriend, layer, this.growTall, null, this);
 		}
-		else if(leftKey.justPressed(500))//move right and stack
+		else if(goleft)//move right and stack
 		{
 			zombieFriend.body.velocity.x = -this.MAX_SPEED;
 			this.game.physics.arcade.collide(zombieFriend, layer, this.growTall, null, this);
