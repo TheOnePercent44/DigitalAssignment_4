@@ -141,7 +141,7 @@ function Horde(game, playersprite)
 	
 	this.update = function()
 	{
-		for(int i = 0; i < this.zombies.countLiving(); i++)
+		for(var i = 0; i < this.zombies.countLiving(); i++)
 		{
 			this.zombies.getChildAt(i).update();
 		}
