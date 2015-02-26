@@ -48,7 +48,7 @@ OrganTrail.Game.prototype = {
 		//this.game.physics.p2.gravity.y = 300;//300;
 		this.game.physics.arcade.gravity.y = 300;//300;
 		
-		humans = new Group();
+		humans = this.game.add.group();
 		humans.enableBody = true;
 		//humans.enableGravity=true;
 		humans.add(new Human(this.game, 45, 3100));
