@@ -286,12 +286,13 @@ function Horde(game, playersprite)
 			//zombieFriend.body.velocity.y = this.game.gravity.y+(32*this.zombies.getIndex(zombieFriend));
 			zombieFriend.body.enableGravity= false;
 			zombieFriend.body.y = zombieFriend.body.y-(32*this.zombies.getIndex(zombieFriend));
+			zombieFriend.holderval = zombieFriend.body.y;
 			this.stacked = true;
 		}
 		else if(zombieFriend.stacked === true)
 		{
 			console.log("I am stacked!");
-			zombieFriend.body.y = zombieFriend.body.y;
+			zombieFriend.body.y = zombieFriend.holderval;
 		}
 	}
 };
