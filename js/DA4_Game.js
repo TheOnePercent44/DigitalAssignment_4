@@ -279,7 +279,10 @@ function Horde(game, playersprite)
 		if(zombieFriend.body.onWall())
 		{
 			console.log("I am onWall()");
-			zombieFriend.body.velocity.x = 0;
+			if(zombieFriend.body.velocity.x > 0)
+				zombieFriend.body.velocity.x = 1;
+			else
+				zombieFriend.body.velocity.x = -1;
 			//zombieFriend.body.velocity.y = this.game.gravity.y+(32*this.zombies.getIndex(zombieFriend));
 			zombieFriend.body.y = zombieFriend.body.y-(32*this.zombies.getIndex(zombieFriend));
 			this.stacked = true;
