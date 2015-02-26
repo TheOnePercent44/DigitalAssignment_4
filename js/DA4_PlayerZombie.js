@@ -64,6 +64,7 @@ function newPlayer(game, xcoord, ycoord)
 	
 	this.climb = function(player, zombieFriend)//acceptss two arguments for compatibility with overlaps
 	{
+		console.log("Overlap detected: climbing");
 		this.sprite.body.velocity.y = this.JUMP_SPEED;
 	}
 	
