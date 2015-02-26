@@ -138,6 +138,14 @@ function Horde(game, playersprite)
 		var temp = new ZombieFriend(this.game, x, y, this);
 		this.zombies.add(temp.sprite);
 	}
+	
+	this.update = function()
+	{
+		for(int i = 0; i < this.zombies.countLiving(); i++)
+		{
+			this.zombies.getChildAt(i).update();
+		}
+	}
 }
 
 function ZombieFriend(game, xcoord, ycoord, horde)
@@ -145,4 +153,23 @@ function ZombieFriend(game, xcoord, ycoord, horde)
 	this.game = game;
 	this.target = horde.target;
 	this.sprite = this.game.add.sprite(xcoord, ycoord, 'purpleBlock');
+	this.MIN_DISTANCE = 32;
+	this.MAX_SPEED = 
+	
+	this.update = function()
+	{
+		var distance = this.game.math.distance(this.x, this.y, this.target.x, this.target.y);
+
+		// If the distance > MIN_DISTANCE then move
+		if (distance > this.MIN_DISTANCE) {
+			// Calculate the angle to the target
+			var rotation = this.game.math.angleBetween(this.sprite.x, this.sprite.y, this.target.x, this.target.y);
+
+			// Calculate velocity vector based on rotation and this.MAX_SPEED
+			this.body.velocity.x = Math.cos(rotation) * this.MAX_SPEED;
+			this.body.velocity.y = Math.sin(rotation) * this.MAX_SPEED;
+		} else {
+			this.body.velocity.setTo(0, 0);
+		}
+	}
 }
