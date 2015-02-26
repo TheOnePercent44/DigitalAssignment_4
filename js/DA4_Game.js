@@ -101,7 +101,7 @@ OrganTrail.Game.prototype = {
 			if(friends.climbing === false)
 			{
 				friends.climbing = true;
-				console.log("Climbing is true");
+				//console.log("Climbing is true");
 				//friends.ladder();
 			}
 			else
@@ -116,7 +116,7 @@ OrganTrail.Game.prototype = {
 			{
 				friends.climbing = false;
 				friends.zombies.forEachAlive(friends.zombies.setProperty, friends.zombies, 'enableGravity', true, 0, true);
-				console.log("Climbing is false");
+				//console.log("Climbing is false");
 			}
 			else{}
 		}
@@ -216,7 +216,8 @@ function Horde(game, playersprite)
 
 			// Calculate velocity vector based on rotation and this.MAX_SPEED
 			zombieFriend.body.velocity.x = Math.cos(rotation) * this.MAX_SPEED;
-			zombieFriend.body.velocity.y = Math.sin(rotation) * this.MAX_SPEED;
+			if(zombieFriend.y < this.target.y)
+				zombieFriend.body.velocity.y = this.MAX_SPEED;//Math.sin(rotation) * this.MAX_SPEED;
 			//zombieFriend.body.acceleration.x = Math.cos(rotation) * this.ACCEL;
 			//zombieFriend.body.acceleration.y = Math.sin(rotation) * this.ACCEL;
 		} 
