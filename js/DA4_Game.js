@@ -122,7 +122,7 @@ OrganTrail.Game.prototype = {
 		if(upKey.isDown && friends.climbing === true)
 		{//will short circuit if the first two conditions are false,thus denying the climbing ability unless all three conditions are true, no further action required(?)
 			console.log("Attempting to climb");
-			this.game.physics.arcade.overlap(player.sprite, friends, player.climb, player);
+			this.game.physics.arcade.overlap(player.sprite, friends.zombies, player.climb, player);
 		}
     },
 
