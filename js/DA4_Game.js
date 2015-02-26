@@ -105,13 +105,13 @@ OrganTrail.Game.prototype = {
 			if(friends.climbing === false)
 			{
 				friends.climbing = true;
-				friends.zombies.forEachAlive(friends.zombies.setProperty, friends.zombies, 'enableGravity', false, 0, true);
+				friends.zombies.forEachAlive(friends.zombies.setProperty, friends.zombies, 'body.enableGravity', false, 0, true);
 				//console.log("Climbing is true");
 				//friends.ladder();
 			}
 			else
 			{
-				friends.zombies.forEachAlive(friends.zombies.setProperty, friends.zombies, 'enableGravity', false, 0, true);
+				friends.zombies.forEachAlive(friends.zombies.setProperty, friends.zombies, 'body.enableGravity', false, 0, true);
 				//friends.climbing = false;
 			}
 		}
@@ -120,7 +120,7 @@ OrganTrail.Game.prototype = {
 			if(friends.climbing === true)
 			{
 				friends.climbing = false;
-				friends.zombies.forEachAlive(friends.zombies.setProperty, friends.zombies, 'enableGravity', true, 0, true);
+				friends.zombies.forEachAlive(friends.zombies.setProperty, friends.zombies, 'body.enableGravity', true, 0, true);
 				//console.log("Climbing is false");
 			}
 			else{}
