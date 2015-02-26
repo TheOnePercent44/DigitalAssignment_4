@@ -166,13 +166,14 @@ function Horde(game, playersprite)
 			var rotation = this.game.math.angleBetween(zombieFriend.x, zombieFriend.y, this.target.x, this.target.y);
 
 			// Calculate velocity vector based on rotation and this.MAX_SPEED
-			zombieFriend.body.acceleration.x = Math.cos(rotation) * this.ACCEL;
+			zombieFriend.body.velocity.x = Math.cos(rotation) * this.MAX_SPEED;
+			//zombieFriend.body.acceleration.x = Math.cos(rotation) * this.ACCEL;
 			//zombieFriend.body.acceleration.y = Math.sin(rotation) * this.ACCEL;
 		} 
 		else
 		{
-			//zombieFriend.body.velocity.setTo(0, 0);
-			zombieFriend.body.acceleration.x = 0;
+			zombieFriend.body.velocity.setTo(0, 0);
+			//zombieFriend.body.acceleration.x = 0;
 		}
 	}
 }
