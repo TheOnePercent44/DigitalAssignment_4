@@ -172,6 +172,7 @@ function Horde(game, playersprite)
 		else
 		{
 			//zombieFriend.body.velocity.setTo(0, 0);
+			zombieFriend.body.acceleration.x = 0;
 		}
 	}
 }
