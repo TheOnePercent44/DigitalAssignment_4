@@ -64,12 +64,11 @@ OrganTrail.Game.prototype = {
 			humans.add(newHume(this.game));
 		}*/
 		
-		friends = new Horde(this.game, player.sprite);
-		
-		
 		player = new newPlayer(this.game, 15, 3100);//physics enables in Catfighter
 		this.game.camera.follow(player.sprite, this.game.camera.FOLLOW_PLATFORMER);
 		player.sprite.body.collideWorldBounds = true;
+		
+		friends = new Horde(this.game, player.sprite);
     },
 
     update: function () {
