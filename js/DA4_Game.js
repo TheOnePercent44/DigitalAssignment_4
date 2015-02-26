@@ -259,8 +259,10 @@ function Horde(game, playersprite)
 	
 	this.growTall = function(zombieFriend, layer)//accepts two for collide
 	{
+		console.log("In growTall");
 		if(zombieFriend.body.onWall())
 		{
+			console.log("I am onWall()");
 			zombieFriend.body.velocity.x = 0;
 			//zombieFriend.body.velocity.y = this.game.gravity.y+(32*this.zombies.getIndex(zombieFriend));
 			zombeFriend.body.y = zombieFriend.body.y+(32*this.zombies.getIndex(zombieFriend));
