@@ -280,6 +280,7 @@ function Horde(game, playersprite)
 		console.log("In growTall");
 		if(zombieFriend.body.onWall())
 		{
+			zombieFriend.holderval = zombieFriend.body.y;
 			zombieFriend.stacked = true;
 			console.log("I am onWall()");
 			zombieFriend.body.velocity.x = 0;
