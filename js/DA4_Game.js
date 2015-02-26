@@ -140,7 +140,7 @@ function Horde(game, playersprite)
 	
 	this.gainZombie = function(x, y)
 	{
-		var temp = new ZombieFriend(this.game, x, y, this);
+		//var temp = new ZombieFriend(this.game, x, y, this);
 		this.zombies.add(this.game.add.sprite(x, y, 'purpleBlock'));
 	}
 	
