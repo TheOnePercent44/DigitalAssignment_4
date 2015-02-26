@@ -200,6 +200,7 @@ function Horde(game, playersprite)
 		this.game.physics.enable(temp, Phaser.Physics.ARCADE);
 		temp.body.collideWorldBounds = true;
 		this.zombies.add(temp);//this.game.add.sprite(x, y, 'purpleBlock'));
+		this.game.world.bringToTop(this.target);
 	}
 	
 	this.update = function()
