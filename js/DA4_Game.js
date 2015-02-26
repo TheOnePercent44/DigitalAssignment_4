@@ -56,12 +56,12 @@ OrganTrail.Game.prototype = {
 		humans.enableBody = true;
 		humans.physicsBodyType = Phaser.Physics.ARCADE;
 		//humans.enableGravity=true;
-		var hume = new Human(this.game, 65, 3100);
-		humans.add(hume.sprite);
-		/*for(int i = 0; i< 20;i++)
+		//var hume;// = new Human(this.game, 65, 3100);
+		//humans.add(hume.sprite);
+		for(int i = 0; i< 20;i++)
 		{
-			
-		}*/
+			humans.add(newHume(this.game));
+		}
 		
 		friends = new Horde(this.game, player.sprite);
 		
@@ -127,7 +127,7 @@ function change(playersprite, human)
 	
 	human.kill();
 	friends.gainZombie(x, y);
-}
+};
 
 function Human(game, xcoord, ycoord)
 {
@@ -143,7 +143,8 @@ function Human(game, xcoord, ycoord)
 	{
 		//return this.sprite.body.x;
 	}*/
-}
+	return this;
+};
 
 function Horde(game, playersprite)
 {
@@ -245,7 +246,27 @@ function Horde(game, playersprite)
 			zombeFriend.body.y = zombieFriend.body.y+(32*this.zombies.getIndex(zombieFriend));
 		}
 	}
-}
+};
+
+function newHume(game)
+{
+	var xcoord, ycoord;
+	
+	xcoord = game.rnd.integerInRange(16, 3184);
+	ycoord = game.rnd.integerInRange(16, 3184);
+	
+	var hume = new Human(game, xcoord, ycoord);//game.add.sprite(xcoord, ycoord, 'yellowBlock');
+	game.physics.enable(hume, Phaser.Physics.ARCADE);
+	while(game.physics.arcade.collide(hume, layer) || game.physics.arcade.collide(hume, player) || game.physics.arcade.collide(hume, humans))
+	{
+		xcoord = game.rnd.integerInRange(16, 3184);
+		ycoord = game.rnd.integerInRange(16, 3184);
+		hume.kill();
+		hume.reset(xcoord, ycoord);
+	}
+	
+	return hume;
+};
 
 /*function ZombieFriend(game, xcoord, ycoord, horde)
 {
