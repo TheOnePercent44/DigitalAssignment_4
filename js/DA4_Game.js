@@ -207,6 +207,7 @@ function Horde(game, playersprite)
 
 			// Calculate velocity vector based on rotation and this.MAX_SPEED
 			zombieFriend.body.velocity.x = Math.cos(rotation) * this.MAX_SPEED;
+			zombieFriend.body.velocity.y = Math.sin(rotation) * this.MAX_SPEED;
 			//zombieFriend.body.acceleration.x = Math.cos(rotation) * this.ACCEL;
 			//zombieFriend.body.acceleration.y = Math.sin(rotation) * this.ACCEL;
 		} 
