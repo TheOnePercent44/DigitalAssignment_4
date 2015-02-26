@@ -164,7 +164,7 @@ function Horde(game, playersprite)
 			zombieFriend.body.velocity.x = Math.cos(rotation) * this.MAX_SPEED;
 			zombieFriend.body.velocity.y = Math.sin(rotation) * this.MAX_SPEED;
 		} else {
-			this.sprite.body.velocity.setTo(0, 0);
+			zombieFriend.body.velocity.setTo(0, 0);
 		}
 	}
 }
