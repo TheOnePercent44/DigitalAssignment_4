@@ -56,12 +56,14 @@ OrganTrail.Game.prototype = {
 		humans.enableBody = true;
 		humans.physicsBodyType = Phaser.Physics.ARCADE;
 		//humans.enableGravity=true;
-		//var hume;// = new Human(this.game, 65, 3100);
-		//humans.add(hume.sprite);
-		for(int i = 0; i< 20;i++)
+		var hume = new Human(this.game, 65, 3100);//these two humes are for testing purposes
+		humans.add(hume.sprite);
+		hume = new Human(this.game, 100, 3100);
+		humans.add(hume.sprite);
+		/*for(int i = 0; i< 20;i++)
 		{
 			humans.add(newHume(this.game));
-		}
+		}*/
 		
 		friends = new Horde(this.game, player.sprite);
 		
