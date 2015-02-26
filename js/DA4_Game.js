@@ -135,7 +135,9 @@ function Horde(game, playersprite)
 	this.zombies = this.game.add.group();
 	this.zombies.enableBody = true;
 	
-	this.MIN_DISTANCE = 32;
+	this.MIN_DISTANCE = 64;
+	this.MAX_DISTANCE = 32
+	
 	this.MAX_SPEED = 400;
 	
 	this.gainZombie = function(x, y)
@@ -146,17 +148,17 @@ function Horde(game, playersprite)
 	
 	this.update = function()
 	{
-		console.log("Horde Update");
+		//console.log("Horde Update");
 		this.zombies.forEachAlive(this.chase, this);
 	}
 	
 	this.chase = function(zombieFriend)
 	{
-		console.log("ZombieFriend Update");
+		//console.log("ZombieFriend Update");
 		var distance = this.game.math.distance(zombieFriend.x, zombieFriend.y, this.target.x, this.target.y);
 
 		// If the distance > MIN_DISTANCE then move
-		if (distance > this.MIN_DISTANCE) {
+		if (distance > this.MIN_DISTANCE && this.distance !< MAX_DISTANCE) {
 			// Calculate the angle to the target
 			var rotation = this.game.math.angleBetween(zombieFriend.x, zombieFriend.y, this.target.x, this.target.y);
 
