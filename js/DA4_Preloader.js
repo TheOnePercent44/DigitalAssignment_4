@@ -28,8 +28,9 @@ OrganTrail.Preloader.prototype = {
 		this.load.spritesheet('button', 'assets/flixel-button.png', 80, 20);
 		this.load.tilemap('map', 'assets/zombieTest.json', null, Phaser.Tilemap.TILED_JSON);
 		this.load.image('greenBlock', 'assets/greenBlock_32x32.png');
-		this.load.image('blueBlock', 'assets/blueBlock_32x32.png');
+		this.load.image('purpleBlock', 'assets/purpleBlock_32x32.png');
 		this.load.image('redBlock', 'assets/redBlock_32x32.png');
+		this.load.image('yellowBlock', 'assets/yellowBlock_32x32.png');
 	},
 
 	create: function () {

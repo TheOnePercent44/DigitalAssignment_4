@@ -58,6 +58,8 @@ OrganTrail.Game.prototype = {
 		{
 			
 		}*/
+		
+		friends = new Horde(this.game, player.sprite);
     },
 
     update: function () {
@@ -104,13 +106,13 @@ function change(playersprite, human)
 	var y = human.body.y;
 	
 	human.kill();
-	
+	friends.gainZombie(x, y);
 }
 
 function Human(game, xcoord, ycoord)
 {
 	this.game = game;
-	this.sprite = this.game.add.sprite(xcoord, ycoord, 'blueBlock');
+	this.sprite = this.game.add.sprite(xcoord, ycoord, 'yellowBlock');
 	
 	/*this.die = function()
 	{
@@ -123,12 +125,22 @@ function Human(game, xcoord, ycoord)
 	}*/
 }
 
-function Horde(game, player)
+function Horde(game, playersprite)
 {
 	this.game = game;
-	this.target = player;
+	this.target = playersprite;
 	this.zombies = new Group();
 	this.zombies.enableBody = true;
 	
-	//this.gainZombie = function(
+	this.gainZombie = function(x, y)
+	{
+		this.zombies.add(new ZombieFriend(this.game, x, y, this));
+	}
+}
+
+function ZombieFriend(game, xcoord, ycoord, horde)
+{
+	this.game = game;
+	this.target = horde.target;
+	this.sprite = this.game.add.sprite(xcoord, ycoord, 'purpleBlock');
 }
