@@ -176,6 +176,7 @@ function Horde(game, playersprite)
 	this.goright = false;
 	this.goleft = false;
 	this.climbing = false;
+	this.stacked = false;
 	
 	this.MIN_DISTANCE = 42;
 	//this.MAX_DISTANCE = 32
@@ -206,6 +207,7 @@ function Horde(game, playersprite)
 	
 	this.chase = function(zombieFriend)
 	{
+		this.stacked = false;
 		var distance = this.game.math.distance(zombieFriend.x, zombieFriend.y, this.target.x, this.target.y);
 		
 		// If the distance > MIN_DISTANCE then move
@@ -236,9 +238,12 @@ function Horde(game, playersprite)
 		else if(leftKey.isDown)
 			this.goleft = true;
 		
-		this.zombies.forEachAlive(this.zombies.setProperty, this.zombies, 'enableGravity', false, 0, true);
-		this.zombies.forEachAlive(this.findWall, this, this.goright, this.goleft);
-		this.zombies.forEachAlive(this.growTall, this);
+		if(this.stacked === false)
+		{
+			this.zombies.forEachAlive(this.zombies.setProperty, this.zombies, 'enableGravity', false, 0, true);
+			this.zombies.forEachAlive(this.findWall, this, this.goright, this.goleft);
+			this.zombies.forEachAlive(this.growTall, this);
+		}
 		
 		this.goright = false;
 		this.goleft = false;
@@ -271,6 +276,7 @@ function Horde(game, playersprite)
 			zombieFriend.body.velocity.x = 0;
 			//zombieFriend.body.velocity.y = this.game.gravity.y+(32*this.zombies.getIndex(zombieFriend));
 			zombieFriend.body.y = zombieFriend.body.y-(32*this.zombies.getIndex(zombieFriend));
+			this.stacked = true;
 		}
 	}
 };
