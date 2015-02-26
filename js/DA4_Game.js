@@ -70,6 +70,8 @@ OrganTrail.Game.prototype = {
 		this.game.physics.arcade.collide(player.sprite, humans, change, null, this);
 		this.game.physics.arcade.collide(friends.zombies, layer);
 		
+		friends.update();
+		
 		if(this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
 		{
 			player.runRight();
