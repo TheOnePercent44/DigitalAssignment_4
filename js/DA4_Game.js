@@ -216,8 +216,9 @@ function Horde(game, playersprite)
 
 			// Calculate velocity vector based on rotation and this.MAX_SPEED
 			zombieFriend.body.velocity.x = Math.cos(rotation) * this.MAX_SPEED;
-			if(zombieFriend.y > this.target.y)
-				zombieFriend.body.velocity.y = this.MAX_SPEED;//Math.sin(rotation) * this.MAX_SPEED;
+			zombieFriend.body.velocity.y = Math.sin(rotation) * this.MAX_SPEED;
+			/*(if(zombieFriend.y > this.target.y)
+				zombieFriend.body.velocity.y = this.MAX_SPEED;//Math.sin(rotation) * this.MAX_SPEED;*/
 			//zombieFriend.body.acceleration.x = Math.cos(rotation) * this.ACCEL;
 			//zombieFriend.body.acceleration.y = Math.sin(rotation) * this.ACCEL;
 		} 
@@ -269,7 +270,7 @@ function Horde(game, playersprite)
 			//console.log("I am onWall()");
 			zombieFriend.body.velocity.x = 0;
 			//zombieFriend.body.velocity.y = this.game.gravity.y+(32*this.zombies.getIndex(zombieFriend));
-			zombieFriend.body.y = zombieFriend.body.y+(32*this.zombies.getIndex(zombieFriend));
+			zombieFriend.body.y = zombieFriend.body.y-(32*this.zombies.getIndex(zombieFriend));
 		}
 	}
 };
