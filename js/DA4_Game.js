@@ -67,8 +67,8 @@ OrganTrail.Game.prototype = {
 		humans.add(hume.sprite);
 		hume = new Human(this.game, 1216, 2800);
 		humans.add(hume.sprite);
-		hume = new Human(this.game, 1248, 2800);//these two humes are for testing purposes
-		humans.add(hume.sprite);
+		//hume = new Human(this.game, 1248, 2800);//these two humes are for testing purposes
+		//humans.add(hume.sprite);
 		hume = new Human(this.game, 1056, 2600);
 		humans.add(hume.sprite);
 		/*for(var i = 0; i< 20;i++)
