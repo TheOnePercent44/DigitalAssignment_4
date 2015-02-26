@@ -139,7 +139,7 @@ function Horde(game, playersprite)
 	//this.MAX_DISTANCE = 32
 	
 	this.MAX_SPEED = 400;
-	this.DRAG = 600;
+	this.DRAG = 1000;
 	this.ACCEL = 500;
 	
 	this.gainZombie = function(x, y)
