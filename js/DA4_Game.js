@@ -50,9 +50,10 @@ OrganTrail.Game.prototype = {
 		
 		humans = this.game.add.group();
 		humans.enableBody = true;
+		humans.physicsBodyType = Phaser.Physics.ARCADE;
 		//humans.enableGravity=true;
 		var hume = new Human(this.game, 45, 3100);
-		humans.add(hume);
+		humans.add(hume.sprite);
 		/*for(int i = 0; i< 20;i++)
 		{
 			
