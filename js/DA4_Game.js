@@ -141,7 +141,7 @@ function Horde(game, playersprite)
 	this.gainZombie = function(x, y)
 	{
 		var temp = new ZombieFriend(this.game, x, y, this);
-		this.zombies.add(temp);
+		this.zombies.add(this.game.add.sprite(x, y, 'purpleBlock'));
 	}
 	
 	this.update = function()
@@ -169,7 +169,7 @@ function Horde(game, playersprite)
 	}
 }
 
-function ZombieFriend(game, xcoord, ycoord, horde)
+/*function ZombieFriend(game, xcoord, ycoord, horde)
 {
 	this.game = game;
 	this.target = horde.target;
@@ -180,4 +180,4 @@ function ZombieFriend(game, xcoord, ycoord, horde)
 	{
 		
 	}
-}
+}*/
