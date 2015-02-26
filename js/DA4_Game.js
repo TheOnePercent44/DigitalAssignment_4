@@ -129,7 +129,7 @@ function Horde(game, playersprite)
 {
 	this.game = game;
 	this.target = playersprite;
-	this.zombies = new Group();
+	this.zombies = this.game.add.group();
 	this.zombies.enableBody = true;
 	
 	this.gainZombie = function(x, y)
