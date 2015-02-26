@@ -215,6 +215,7 @@ function Horde(game, playersprite)
 	this.chase = function(zombieFriend)
 	{
 		this.stacked = false;
+		zombieFriend.stacked = false;
 		var distance = this.game.math.distance(zombieFriend.x, zombieFriend.y, this.target.x, this.target.y);
 		
 		// If the distance > MIN_DISTANCE then move
@@ -280,7 +281,7 @@ function Horde(game, playersprite)
 		console.log("In growTall");
 		if(zombieFriend.body.onWall())
 		{
-			zombieFriend.holderval = zombieFriend.body.y;
+			//zombieFriend.holderval = zombieFriend.body.y;
 			zombieFriend.stacked = true;
 			console.log("I am onWall()");
 			zombieFriend.body.velocity.x = 0;
