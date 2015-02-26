@@ -180,8 +180,8 @@ function Horde(game, playersprite)
 	
 	this.chase = function(zombieFriend)
 	{
-		/*var distance = this.game.math.distance(zombieFriend.x, zombieFriend.y, this.target.x, this.target.y);
-
+		var distance = this.game.math.distance(zombieFriend.x, zombieFriend.y, this.target.x, this.target.y);
+		/*
 		// If the distance > MIN_DISTANCE then move
 		if (distance > this.MIN_DISTANCE && zombieFriend.body.velocity.x < this.MAX_SPEED)// && this.distance !< MAX_DISTANCE)
 		{		
@@ -198,7 +198,8 @@ function Horde(game, playersprite)
 			zombieFriend.body.velocity.setTo(0, 0);
 			//zombieFriend.body.acceleration.x = 0;
 		}*/
-		this.game.physics.arcade.moveToObject(zombieFriend, this.target);//???
+		if(distance > this.MIN_DISTANCE)
+			this.game.physics.arcade.moveToObject(zombieFriend, this.target);//???
 	}
 	
 	this.ladder = function()
