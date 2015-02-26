@@ -59,6 +59,10 @@ OrganTrail.Game.prototype = {
 		humans.add(hume.sprite);
 		hume = new Human(this.game, 100, 3100);
 		humans.add(hume.sprite);
+		hume = new Human(this.game, 200, 3100);//these two humes are for testing purposes
+		humans.add(hume.sprite);
+		hume = new Human(this.game, 340, 3100);
+		humans.add(hume.sprite);
 		/*for(var i = 0; i< 20;i++)
 		{
 			humans.add(newHume(this.game));
@@ -107,7 +111,7 @@ OrganTrail.Game.prototype = {
 			}
 			else
 			{
-				//friends.zombies.forEachAlive(friends.zombies.setProperty, friends.zombies, 'enableGravity', true, 0, true);
+				friends.zombies.forEachAlive(friends.zombies.setProperty, friends.zombies, 'enableGravity', false, 0, true);
 				//friends.climbing = false;
 			}
 		}
