@@ -103,7 +103,7 @@ function change(playersprite, human)
 	var x = human.body.x;
 	var y = human.body.y;
 	
-	human.die();
+	human.kill();
 	
 }
 
@@ -112,7 +112,7 @@ function Human(game, xcoord, ycoord)
 	this.game = game;
 	this.sprite = this.game.add.sprite(xcoord, ycoord, 'blueBlock');
 	
-	this.die = function()
+	/*this.die = function()
 	{
 		this.sprite.kill();
 	}
@@ -120,7 +120,7 @@ function Human(game, xcoord, ycoord)
 	this.getX = function()
 	{
 		//return this.sprite.body.x;
-	}
+	}*/
 }
 
 function Horde(game, player)
