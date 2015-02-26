@@ -168,10 +168,10 @@ function ZombieFriend(game, xcoord, ycoord, horde)
 			var rotation = this.game.math.angleBetween(this.sprite.x, this.sprite.y, this.target.x, this.target.y);
 
 			// Calculate velocity vector based on rotation and this.MAX_SPEED
-			this.body.velocity.x = Math.cos(rotation) * this.MAX_SPEED;
-			this.body.velocity.y = Math.sin(rotation) * this.MAX_SPEED;
+			this.sprite.body.velocity.x = Math.cos(rotation) * this.MAX_SPEED;
+			this.sprite.body.velocity.y = Math.sin(rotation) * this.MAX_SPEED;
 		} else {
-			this.body.velocity.setTo(0, 0);
+			this.sprite.body.velocity.setTo(0, 0);
 		}
 	}
 }
