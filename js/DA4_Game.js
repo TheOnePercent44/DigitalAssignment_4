@@ -100,13 +100,21 @@ OrganTrail.Game.prototype = {
 			if(friends.climbing === false)
 			{
 				friends.climbing = true;
-				friends.ladder();
+				//friends.ladder();
 			}
 			else
 			{
-				friends.zombies.forEachAlive(friends.zombies.setProperty, friends.zombies, 'enableGravity', true, 0, true);
+				//friends.zombies.forEachAlive(friends.zombies.setProperty, friends.zombies, 'enableGravity', true, 0, true);
+				//friends.climbing = false;
+			}
+		}
+		else
+		{
+			if(friends.climbing === true)
+			{
 				friends.climbing = false;
 			}
+			else{}
 		}
     },
 
@@ -183,7 +191,7 @@ function Horde(game, playersprite)
 			this.zombies.forEachAlive(this.chase, this);
 		else
 		{
-			//uhhh?
+			this.ladder();
 		}
 	}
 	
