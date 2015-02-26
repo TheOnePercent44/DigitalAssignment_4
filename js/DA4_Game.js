@@ -117,8 +117,10 @@ OrganTrail.Game.prototype = {
 			}
 			else{}
 		}
-		if(upKey.isDown && friends.climbing === true && this.game.physics.arcade.overlap(player, friends, player.climb, player))
-		{}//will short circuit if the first two conditions are false,thus denying the climbing ability unless all three conditions are true, no further action required(?)
+		if(upKey.isDown && friends.climbing === true)
+		{//will short circuit if the first two conditions are false,thus denying the climbing ability unless all three conditions are true, no further action required(?)
+			this.game.physics.arcade.overlap(player, friends, player.climb, player);
+		}
     },
 
     quitGame: function (pointer) {
