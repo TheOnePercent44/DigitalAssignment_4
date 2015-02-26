@@ -147,7 +147,7 @@ function Horde(game, playersprite)
 		//var temp = new ZombieFriend(this.game, x, y, this);
 		var temp = this.game.add.sprite(x, y, 'purpleBlock');
 		temp.drag = this.DRAG;
-		this.zombies.add(this.game.add.sprite(x, y, 'purpleBlock'));
+		this.zombies.add(temp);//this.game.add.sprite(x, y, 'purpleBlock'));
 	}
 	
 	this.update = function()
