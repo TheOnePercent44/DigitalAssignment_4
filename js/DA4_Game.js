@@ -101,6 +101,7 @@ OrganTrail.Game.prototype = {
 			if(friends.climbing === false)
 			{
 				friends.climbing = true;
+				friends.zombies.forEachAlive(friends.zombies.setProperty, friends.zombies, 'enableGravity', false, 0, true);
 				//console.log("Climbing is true");
 				//friends.ladder();
 			}
@@ -240,7 +241,7 @@ function Horde(game, playersprite)
 		
 		if(this.stacked === false)
 		{
-			this.zombies.forEachAlive(this.zombies.setProperty, this.zombies, 'enableGravity', false, 0, true);
+			//this.zombies.forEachAlive(this.zombies.setProperty, this.zombies, 'enableGravity', false, 0, true);
 			this.zombies.forEachAlive(this.findWall, this, this.goright, this.goleft);
 			this.zombies.forEachAlive(this.growTall, this);
 		}
