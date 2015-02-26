@@ -216,7 +216,7 @@ function Horde(game, playersprite)
 
 			// Calculate velocity vector based on rotation and this.MAX_SPEED
 			zombieFriend.body.velocity.x = Math.cos(rotation) * this.MAX_SPEED;
-			if(zombieFriend.y < this.target.y)
+			if(zombieFriend.y > this.target.y)
 				zombieFriend.body.velocity.y = this.MAX_SPEED;//Math.sin(rotation) * this.MAX_SPEED;
 			//zombieFriend.body.acceleration.x = Math.cos(rotation) * this.ACCEL;
 			//zombieFriend.body.acceleration.y = Math.sin(rotation) * this.ACCEL;
@@ -237,6 +237,7 @@ function Horde(game, playersprite)
 		
 		this.zombies.forEachAlive(this.zombies.setProperty, this.zombies, 'enableGravity', false, 0, true);
 		this.zombies.forEachAlive(this.findWall, this, this.goright, this.goleft);
+		this.zombies.forEacAlive(this.growTall, this);
 		
 		this.goright = false;
 		this.goleft = false;
@@ -260,7 +261,7 @@ function Horde(game, playersprite)
 		this.game.physics.arcade.collide(zombieFriend, layer, this.growTall, null, this);
 	}
 	
-	this.growTall = function(zombieFriend, layer)//accepts two for collide
+	this.growTall = function(zombieFriend)//, layer)//accepts two for collide
 	{
 		console.log("In growTall");
 		if(zombieFriend.body.onWall())
