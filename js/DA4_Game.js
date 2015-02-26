@@ -216,6 +216,7 @@ function Horde(game, playersprite)
 	{
 		this.stacked = false;
 		zombieFriend.stacked = false;
+		zombieFriend.body.enableGravity = true;
 		var distance = this.game.math.distance(zombieFriend.x, zombieFriend.y, this.target.x, this.target.y);
 		
 		// If the distance > MIN_DISTANCE then move
