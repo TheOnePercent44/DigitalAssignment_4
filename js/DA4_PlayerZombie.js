@@ -11,7 +11,7 @@ function newPlayer(game, xcoord, ycoord)
     this.ACCELERATION = 1500; // pixels/second/second
     this.DRAG = 600; // pixels/second
     //this.GRAVITY = 2600; // pixels/second/second
-    this.JUMP_SPEED = -200; // pixels/second (negative y is up)
+    this.JUMP_SPEED = -100; // pixels/second (negative y is up)
 	
 	this.idle = function()
 	{
@@ -60,6 +60,11 @@ function newPlayer(game, xcoord, ycoord)
 			this.inAir = false;
 		}
 		else{}//do nothing, let idle or others take care of it
+	}
+	
+	this.climb = function(player, zombieFriend)//acceptss two arguments for compatibility with overlaps
+	{
+		this.sprite.body.velocity.y = this.JUMP_SPEED;
 	}
 	
 	return this;

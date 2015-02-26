@@ -24,7 +24,7 @@ OrganTrail.Game = function (game) {
 
 };
 
-var player, layer, humans, friends, leftKey, rightKey, spaceKey;
+var player, layer, humans, friends, leftKey, rightKey, spaceKey, upKey;
 OrganTrail.Game.prototype = {
     create: function () {
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -42,6 +42,7 @@ OrganTrail.Game.prototype = {
 		leftKey = this.game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
 		rightKey = this.game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
 		spaceKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+		upKey = this.game.input.keyboard.addKey(Phaser.Keyboard.UP);
 		
 		//this.game.physics.p2.convertTilemap(map, layer);
 		//this.game.camera.setSize(100, 100);
@@ -116,6 +117,8 @@ OrganTrail.Game.prototype = {
 			}
 			else{}
 		}
+		if(upKey.isDown && friends.climbing === true && this.game.physics.arcade.overlap(player, friends, player.climb, player))
+		{}//will short circuit if the first two conditions are false,thus denying the climbing ability unless all three conditions are true, no further action required(?)
     },
 
     quitGame: function (pointer) {
