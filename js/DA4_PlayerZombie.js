@@ -11,7 +11,7 @@ function newPlayer(game, xcoord, ycoord)
     this.ACCELERATION = 1500; // pixels/second/second
     this.DRAG = 600; // pixels/second
     //this.GRAVITY = 2600; // pixels/second/second
-    this.JUMP_SPEED = -100; // pixels/second (negative y is up)
+    this.JUMP_SPEED = -500; // pixels/second (negative y is up)
 	
 	this.idle = function()
 	{
