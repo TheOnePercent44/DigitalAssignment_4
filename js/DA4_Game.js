@@ -290,6 +290,7 @@ function Horde(game, playersprite)
 		}
 		else if(zombieFriend.stacked === true)
 		{
+			console.log("I am stacked!");
 			zombieFriend.body.y = zombieFriend.body.y;
 		}
 	}
