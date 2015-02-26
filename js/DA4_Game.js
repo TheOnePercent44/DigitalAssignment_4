@@ -24,7 +24,7 @@ OrganTrail.Game = function (game) {
 
 };
 
-var player, layer, humans, friends;
+var player, layer, humans, friends, leftKey, rightKey, spaceKey;
 OrganTrail.Game.prototype = {
     create: function () {
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -38,6 +38,10 @@ OrganTrail.Game.prototype = {
 		player = new newPlayer(this.game, 15, 3100);//physics enables in Catfighter
 		layer.resizeWorld();
 		map.setCollision(1, true, 'Platforms', true);
+		
+		leftKey = this.game.input.keyboard.addKey(Phaser.Keyboard.LEFT);
+		rightKey = this.game.input.keyboard.addKey(Phaser.Keyboard.RIGHT);
+		spaceKey = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 		
 		//this.game.physics.p2.convertTilemap(map, layer);
 		//this.game.camera.setSize(100, 100);
@@ -72,11 +76,11 @@ OrganTrail.Game.prototype = {
 		
 		friends.update();
 		
-		if(this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
+		if(rightKey.isDown)
 		{
 			player.runRight();
 		}
-		else if(this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT))
+		else if(leftKey.isDown)
 		{
 			player.runLeft();
 		}
@@ -86,7 +90,7 @@ OrganTrail.Game.prototype = {
 				player.idle();
 		}
 		//if(this.game.input.keyboard.isDown(Phaser.Keyboard.UP))
-		if(this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR))
+		if(spaceKey.justPressed(500))
 		{
 			//player.jump();
 			if(friends.climbing === false)
@@ -202,12 +206,12 @@ function Horde(game, playersprite)
 	
 	this.findWall = function(zombieFriend)
 	{
-		if(this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT))//move right and stack
+		if(rightKey.justPressed(500))//move right and stack
 		{
 			zombieFriend.body.velocity.x = this.MAX_SPEED;
 			this.game.physics.arcade.collide(zombieFriend, layer, this.growTall, null, this);
 		}
-		else if(this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT))//move right and stack
+		else if(leftKey.justPressed(500))//move right and stack
 		{
 			zombieFriend.body.velocity.x = -this.MAX_SPEED;
 			this.game.physics.arcade.collide(zombieFriend, layer, this.growTall, null, this);
