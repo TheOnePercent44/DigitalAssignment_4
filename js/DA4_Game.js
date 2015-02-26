@@ -115,6 +115,7 @@ OrganTrail.Game.prototype = {
 			if(friends.climbing === true)
 			{
 				friends.climbing = false;
+				friends.zombies.forEachAlive(friends.zombies.setProperty, friends.zombies, 'enableGravity', true, 0, true);
 				console.log("Climbing is false");
 			}
 			else{}
