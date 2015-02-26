@@ -209,7 +209,7 @@ function Horde(game, playersprite)
 			this.goleft = true;
 		
 		this.zombies.forEachAlive(this.zombies.setProperty, this.zombies, 'enableGravity', false, 0, true);
-		this.zombies.forEachAlive(this.findWall, this, goright, goleft);
+		this.zombies.forEachAlive(this.findWall, this, this.goright, this.goleft);
 		
 		this.goright = false;
 		this.goleft = false;
