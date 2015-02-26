@@ -135,6 +135,9 @@ function Horde(game, playersprite)
 	this.zombies = this.game.add.group();
 	this.zombies.enableBody = true;
 	
+	this.MIN_DISTANCE = 32;
+	this.MAX_SPEED = 400;
+	
 	this.gainZombie = function(x, y)
 	{
 		var temp = new ZombieFriend(this.game, x, y, this);
@@ -144,9 +147,24 @@ function Horde(game, playersprite)
 	this.update = function()
 	{
 		console.log("Horde Update");
-		for(var i = 0; i < this.zombies.countLiving(); i++)
-		{
-			this.zombies.getChildAt(i).update();
+		forEachAlive(chase, this);
+	}
+	
+	this.chase = function(zombieFriend)
+	{
+		console.log("ZombieFriend Update");
+		var distance = this.game.math.distance(zombieFriend.x, zombieFriend.y, this.target.x, this.target.y);
+
+		// If the distance > MIN_DISTANCE then move
+		if (distance > this.MIN_DISTANCE) {
+			// Calculate the angle to the target
+			var rotation = this.game.math.angleBetween(zombieFriend.x, zombieFriend.y, this.target.x, this.target.y);
+
+			// Calculate velocity vector based on rotation and this.MAX_SPEED
+			zombieFriend.body.velocity.x = Math.cos(rotation) * this.MAX_SPEED;
+			zombieFriend.body.velocity.y = Math.sin(rotation) * this.MAX_SPEED;
+		} else {
+			this.sprite.body.velocity.setTo(0, 0);
 		}
 	}
 }
@@ -156,24 +174,10 @@ function ZombieFriend(game, xcoord, ycoord, horde)
 	this.game = game;
 	this.target = horde.target;
 	this.sprite = this.game.add.sprite(xcoord, ycoord, 'purpleBlock');
-	this.MIN_DISTANCE = 32;
-	this.MAX_SPEED = 
+	
 	
 	this.update = function()
 	{
-		console.log("ZombieFriend Update");
-		var distance = this.game.math.distance(this.x, this.y, this.target.x, this.target.y);
-
-		// If the distance > MIN_DISTANCE then move
-		if (distance > this.MIN_DISTANCE) {
-			// Calculate the angle to the target
-			var rotation = this.game.math.angleBetween(this.sprite.x, this.sprite.y, this.target.x, this.target.y);
-
-			// Calculate velocity vector based on rotation and this.MAX_SPEED
-			this.sprite.body.velocity.x = Math.cos(rotation) * this.MAX_SPEED;
-			this.sprite.body.velocity.y = Math.sin(rotation) * this.MAX_SPEED;
-		} else {
-			this.sprite.body.velocity.setTo(0, 0);
-		}
+		
 	}
 }
