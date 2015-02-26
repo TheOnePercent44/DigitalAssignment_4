@@ -205,7 +205,7 @@ function Horde(game, playersprite)
 	{
 		if(rightKey.isDown)
 			this.goright = true;
-		else if(leftKeey.isDown)
+		else if(leftKey.isDown)
 			this.goleft = true;
 		
 		this.zombies.forEachAlive(this.zombies.setProperty, this.zombies, 'enableGravity', false, 0, true);
