@@ -55,13 +55,19 @@ OrganTrail.Game.prototype = {
 		humans.enableBody = true;
 		humans.physicsBodyType = Phaser.Physics.ARCADE;
 		//humans.enableGravity=true;
-		var hume = new Human(this.game, 65, 3100);//these two humes are for testing purposes
+		var hume = new Human(this.game, 160, 3100);//these two humes are for testing purposes
 		humans.add(hume.sprite);
-		hume = new Human(this.game, 100, 3100);
+		hume = new Human(this.game, 416, 3100);
 		humans.add(hume.sprite);
-		hume = new Human(this.game, 200, 3100);//these two humes are for testing purposes
+		hume = new Human(this.game, 768, 3100);//these two humes are for testing purposes
 		humans.add(hume.sprite);
-		hume = new Human(this.game, 340, 3100);
+		hume = new Human(this.game, 1024, 2900);
+		humans.add(hume.sprite);
+		hume = new Human(this.game, 1216, 2800);
+		humans.add(hume.sprite);
+		hume = new Human(this.game, 1248, 2800);//these two humes are for testing purposes
+		humans.add(hume.sprite);
+		hume = new Human(this.game, 1056, 2600);
 		humans.add(hume.sprite);
 		/*for(var i = 0; i< 20;i++)
 		{
