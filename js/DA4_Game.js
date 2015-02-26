@@ -101,6 +101,7 @@ OrganTrail.Game.prototype = {
 			if(friends.climbing === false)
 			{
 				friends.climbing = true;
+				console.log("Climbing is true");
 				//friends.ladder();
 			}
 			else
@@ -114,6 +115,7 @@ OrganTrail.Game.prototype = {
 			if(friends.climbing === true)
 			{
 				friends.climbing = false;
+				console.log("Climbing is false");
 			}
 			else{}
 		}
