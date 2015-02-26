@@ -64,6 +64,8 @@ OrganTrail.Game.prototype = {
 		}*/
 		
 		friends = new Horde(this.game, player.sprite);
+		
+		player.sprite.body.collideWorldBounds = true;
     },
 
     update: function () {
@@ -149,9 +151,11 @@ function Horde(game, playersprite)
 	this.target = playersprite;
 	this.zombies = this.game.add.group();
 	this.zombies.enableBody = true;
+	//this.zombies.collideWorldBounds = true;
 	
 	this.goright = false;
 	this.goleft = false;
+	this.climbing = false;
 	
 	this.MIN_DISTANCE = 42;
 	//this.MAX_DISTANCE = 32
@@ -165,6 +169,7 @@ function Horde(game, playersprite)
 		//var temp = new ZombieFriend(this.game, x, y, this);
 		var temp = this.game.add.sprite(x, y, 'purpleBlock');
 		temp.drag = this.DRAG;
+		temp.body.collideWorldBounds = true;
 		this.zombies.add(temp);//this.game.add.sprite(x, y, 'purpleBlock'));
 	}
 	
@@ -181,7 +186,7 @@ function Horde(game, playersprite)
 	this.chase = function(zombieFriend)
 	{
 		var distance = this.game.math.distance(zombieFriend.x, zombieFriend.y, this.target.x, this.target.y);
-		/*
+		
 		// If the distance > MIN_DISTANCE then move
 		if (distance > this.MIN_DISTANCE && zombieFriend.body.velocity.x < this.MAX_SPEED)// && this.distance !< MAX_DISTANCE)
 		{		
@@ -197,9 +202,7 @@ function Horde(game, playersprite)
 		{
 			zombieFriend.body.velocity.setTo(0, 0);
 			//zombieFriend.body.acceleration.x = 0;
-		}*/
-		if(distance > this.MIN_DISTANCE)
-			this.game.physics.arcade.moveToObject(zombieFriend, this.target);//???
+		}
 	}
 	
 	this.ladder = function()
