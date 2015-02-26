@@ -204,14 +204,16 @@ function Horde(game, playersprite)
 	{
 		if(this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT))//move right and stack
 		{
-			zombieFriend.velocity.x = this.MAX_SPEED;
+			zombieFriend.body.velocity.x = this.MAX_SPEED;
 			this.game.physics.arcade.collide(zombieFriend, layer, this.growTall, null, this);
 		}
 		else if(this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT))//move right and stack
 		{
-			zombieFriend.velocity.x = -this.MAX_SPEED;
+			zombieFriend.body.velocity.x = -this.MAX_SPEED;
 			this.game.physics.arcade.collide(zombieFriend, layer, this.growTall, null, this);
 		}
+		else
+		{}//wait?
 	}
 	
 	this.growTall = function(zombieFriend)
