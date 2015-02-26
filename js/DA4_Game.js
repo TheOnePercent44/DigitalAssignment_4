@@ -169,6 +169,7 @@ function Horde(game, playersprite)
 		//var temp = new ZombieFriend(this.game, x, y, this);
 		var temp = this.game.add.sprite(x, y, 'purpleBlock');
 		temp.drag = this.DRAG;
+		this.game.physics.enable(temp, Phaser.Physics.ARCADE);
 		temp.body.collideWorldBounds = true;
 		this.zombies.add(temp);//this.game.add.sprite(x, y, 'purpleBlock'));
 	}
