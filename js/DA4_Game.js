@@ -196,7 +196,7 @@ function Horde(game, playersprite)
 	
 	this.ladder = function()
 	{
-		this.zombies.forEachAlive(this.zombies.setProperty, 'enableGravity', false, 0, true);
+		this.zombies.forEachAlive(this.zombies.setProperty, this.zombies, 'enableGravity', false, 0, true);
 		this.zombies.forEachAlive(this.findWall, this);
 	}
 	
