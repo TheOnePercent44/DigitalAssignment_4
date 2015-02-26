@@ -100,8 +100,8 @@ OrganTrail.Game.prototype = {
 
 function change(playersprite, human)
 {
-	int x = human.sprite.body.x;
-	int y = human.sprite.body.y;
+	var x = human.sprite.body.x;
+	var y = human.sprite.body.y;
 	
 	human.die();
 	
