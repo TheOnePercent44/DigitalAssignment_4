@@ -68,6 +68,7 @@ OrganTrail.Game.prototype = {
 		this.game.physics.arcade.collide(player.sprite, layer, player.hitLand, null, player);
 		this.game.physics.arcade.collide(humans, layer);
 		this.game.physics.arcade.collide(player.sprite, humans, change, null, this);
+		this.game.physics.arcade.collide(friends, layer);
 		
 		if(this.game.input.keyboard.isDown(Phaser.Keyboard.RIGHT))
 		{
