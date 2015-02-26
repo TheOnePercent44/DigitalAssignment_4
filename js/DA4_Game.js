@@ -207,6 +207,11 @@ function Horde(game, playersprite)
 			zombieFriend.velocity.x = this.MAX_SPEED;
 			this.game.physics.arcade.collide(zombieFriend, layer, this.growTall, null, this);
 		}
+		else if(this.game.input.keyboard.isDown(Phaser.Keyboard.LEFT))//move right and stack
+		{
+			zombieFriend.velocity.x = -this.MAX_SPEED;
+			this.game.physics.arcade.collide(zombieFriend, layer, this.growTall, null, this);
+		}
 	}
 	
 	this.growTall = function(zombieFriend)
