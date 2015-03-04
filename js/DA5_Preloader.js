@@ -1,4 +1,4 @@
-OrganTrail.Preloader = function (game) {
+ThrowingFriend.Preloader = function (game) {
 
 	this.background = null;
 	this.preloadBar = null;
@@ -8,7 +8,7 @@ OrganTrail.Preloader = function (game) {
 
 };
 
-OrganTrail.Preloader.prototype = {
+ThrowingFriend.Preloader.prototype = {
 
 	preload: function () {
 

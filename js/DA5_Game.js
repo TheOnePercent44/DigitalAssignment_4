@@ -1,4 +1,4 @@
-OrganTrail.Game = function (game) {
+ThrowingFriend.Game = function (game) {
 
     //  When a State is added to Phaser it automatically has the following properties set on it, even if they already exist:
 
@@ -25,7 +25,7 @@ OrganTrail.Game = function (game) {
 };
 
 var player, layer, humans, friends, leftKey, rightKey, spaceKey, upKey;
-OrganTrail.Game.prototype = {
+ThrowingFriend.Game.prototype = {
     create: function () {
 		this.game.physics.startSystem(Phaser.Physics.ARCADE);
 		//this.game.physics.startSystem(Phaser.Physics.P2JS);

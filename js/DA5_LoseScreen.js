@@ -1,4 +1,4 @@
-OrganTrail.LoseScreen = function (game) {
+ThrowingFriend.LoseScreen = function (game) {
 	this.game;      //  a reference to the currently running game (Phaser.Game)
     this.add;       //  used to add sprites, text, groups, etc (Phaser.GameObjectFactory)
     this.camera;    //  a reference to the game camera (Phaser.Camera)
@@ -17,7 +17,7 @@ OrganTrail.LoseScreen = function (game) {
     this.rnd;       //  the repeatable random number generator (Phaser.RandomDataGenerator)
 };
 
-OrganTrail.LoseScreen.prototype = {
+ThrowingFriend.LoseScreen.prototype = {
 	create: function () {
 		var text = this.game.add.text(this.game.camera.width*0.05, this.game.camera.height*0.4, "Despair has claimed you!", { font: "65px Arial", fill: "#FFFFFF", align: "center" });
 		this.game.add.text(this.game.camera.width*0.30, this.game.camera.height*0.5, "(Click to Return to the Menu)", { font: "30px Arial", fill: "#FFFFFF", align: "center" });
