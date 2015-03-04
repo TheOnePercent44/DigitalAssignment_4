@@ -1,4 +1,4 @@
-ThrowingFriend.WinScreen = function (game) {
+OrganTrail.WinScreen = function (game) {
 	this.game;      //  a reference to the currently running game (Phaser.Game)
     this.add;       //  used to add sprites, text, groups, etc (Phaser.GameObjectFactory)
     this.camera;    //  a reference to the game camera (Phaser.Camera)
@@ -17,7 +17,7 @@ ThrowingFriend.WinScreen = function (game) {
     this.rnd;       //  the repeatable random number generator (Phaser.RandomDataGenerator)
 };
 
-ThrowingFriend.WinScreen.prototype = {
+OrganTrail.WinScreen.prototype = {
 
 	create: function () {
 		var text = this.game.add.text(this.game.camera.width*0.25, this.game.camera.height*0.4, "Congratulations!", { font: "65px Arial", fill: "#FFFFFF", align: "center" });

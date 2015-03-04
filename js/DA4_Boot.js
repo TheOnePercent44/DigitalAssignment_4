@@ -1,10 +1,10 @@
-var ThrowingFriend = {};
+var OrganTrail = {};
 
-ThrowingFriend.Boot = function (game) {
+OrganTrail.Boot = function (game) {
 
 };
 
-ThrowingFriend.Boot.prototype = {
+OrganTrail.Boot.prototype = {
 
     init: function () {
 
@@ -56,12 +56,12 @@ window.onload = function() {
 	var game = new Phaser.Game(800, 800, Phaser.AUTO, 'game');
 	//	Add the States your game has.
 	//	You don't have to do this in the html, it could be done in your Boot state too, but for simplicity I'll keep it here.
-	game.state.add('Boot', ThrowingFriend.Boot);
-	game.state.add('Preloader', ThrowingFriend.Preloader);
-	game.state.add('MainMenu', ThrowingFriend.MainMenu);
-	game.state.add('Game', ThrowingFriend.Game);
-	game.state.add('WinScreen', ThrowingFriend.WinScreen);
-	game.state.add('LoseScreen', ThrowingFriend.LoseScreen);
+	game.state.add('Boot', OrganTrail.Boot);
+	game.state.add('Preloader', OrganTrail.Preloader);
+	game.state.add('MainMenu', OrganTrail.MainMenu);
+	game.state.add('Game', OrganTrail.Game);
+	game.state.add('WinScreen', OrganTrail.WinScreen);
+	game.state.add('LoseScreen', OrganTrail.LoseScreen);
 	//	Now start the Boot state.
 	game.state.start('Boot');
 };

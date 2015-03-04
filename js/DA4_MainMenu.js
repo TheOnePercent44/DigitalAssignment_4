@@ -1,11 +1,11 @@
-ThrowingFriend.MainMenu = function (game) {
+OrganTrail.MainMenu = function (game) {
 	this.game = game;
 	this.music = null;
 	this.playButton = null;
 
 };
 
-ThrowingFriend.MainMenu.prototype = {
+OrganTrail.MainMenu.prototype = {
 
 	create: function () {
 
